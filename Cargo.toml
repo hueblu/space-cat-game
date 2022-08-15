@@ -1,0 +1,9 @@
+[package]
+name = "space-cat-game"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy_asset_loader = "0.12"
+bevy = "0.8"
+bevy_rapier2d = "0.16"
