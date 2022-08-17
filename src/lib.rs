@@ -1,7 +1,15 @@
-mod assets;
+mod loading;
 mod splashscreen;
 mod main_menu;
+mod actions;
+mod level;
 mod util;
+
+use loading::LoadingPlugin;
+use splashscreen::SplashPlugin;
+use main_menu::MainMenuPlugin;
+use actions::ActionsPlugin;
+use level::LevelPlugin;
 
 #[cfg(debug_assertions)]
 use bevy::diagnostic::{LogDiagnosticsPlugin, FrameTimeDiagnosticsPlugin};
@@ -21,9 +29,11 @@ pub struct GamePlugin;
 impl Plugin for GamePlugin {
     fn build(&self, app: &mut App) {
         app
-            .add_plugin(assets::LoadingPlugin)
-            .add_plugin(splashscreen::SplashPlugin)
-            .add_plugin(main_menu::MainMenuPlugin)
+            .add_plugin(ActionsPlugin)
+            .add_plugin(LoadingPlugin)
+            .add_plugin(SplashPlugin)
+            .add_plugin(MainMenuPlugin)
+            .add_plugin(LevelPlugin)
             .add_state(GameState::AssetLoading);
 
         #[cfg(debug_assertions)]

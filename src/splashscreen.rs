@@ -1,5 +1,5 @@
 use crate::GameState;
-use crate::assets::TextureAssets;
+use crate::loading::TextureAssets;
 use crate::util::despawn_all;
 
 use bevy::prelude::*;

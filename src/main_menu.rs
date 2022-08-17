@@ -1,6 +1,6 @@
 use crate::{
     GameState,
-    assets::MenuStyles,
+    loading::MenuStyles,
     util::despawn_all,
 };
 

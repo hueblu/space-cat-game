@@ -1,6 +1,7 @@
+
 use crate::GameState;
 
-use bevy::prelude::*;
+use bevy::{prelude::*, reflect::TypeUuid};
 use bevy_asset_loader::prelude::*;
 
 pub struct LoadingPlugin;
@@ -13,6 +14,7 @@ impl Plugin for LoadingPlugin {
                     .continue_to_state(GameState::Splash)
                     .with_collection::<TextureAssets>()
                     .with_collection::<FontAssets>()
+                    .with_collection::<LevelAssets>()
                     .init_resource::<MenuStyles>()
             )
             .add_system_set(
@@ -26,12 +28,26 @@ impl Plugin for LoadingPlugin {
 pub struct TextureAssets {
     #[asset(path = "textures/bevy.png")]
     pub bevy: Handle<Image>,
+    #[asset(path = "textures/player.png")]    
+    pub player: Handle<Image>,
 }
 
 #[derive(AssetCollection)]
 pub struct FontAssets {
     #[asset(path = "fonts/FiraSans-Bold.ttf")]
     pub fira_sans_bold: Handle<Font>,
+}
+
+#[derive(AssetCollection)]
+pub struct LevelAssets {
+    #[asset(path = "level.ldtk")]
+    pub level: Handle<Level>,
+}
+
+#[derive(Debug, TypeUuid)]
+#[uuid = "aecdacbb-8f79-49a9-b44b-30cc07383992"]
+pub struct Level {
+
 }
 
 pub struct MenuStyles {
@@ -54,7 +70,7 @@ impl FromWorld for MenuStyles {
         MenuStyles {
             button_color: Color::rgb(0.2, 0.2, 0.2).into(),
             button_color_clicked: Color::rgb(0.5, 0.5, 0.5).into(),
-            button_color_hovered: Color::rgb(0.7, 0.7, 0.7).into(),
+            button_color_hovered: Color::rgb(0.3, 0.3, 0.3).into(),
             button_style: Style {
                 size: Size::new(Val::Px(250.), Val::Px(65.)),
                 margin: UiRect::all(Val::Px(20.)),
