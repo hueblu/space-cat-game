@@ -14,7 +14,6 @@ impl Plugin for LoadingPlugin {
                     .continue_to_state(GameState::Splash)
                     .with_collection::<TextureAssets>()
                     .with_collection::<FontAssets>()
-                    .with_collection::<LevelAssets>()
                     .init_resource::<MenuStyles>()
             )
             .add_system_set(
@@ -28,7 +27,7 @@ impl Plugin for LoadingPlugin {
 pub struct TextureAssets {
     #[asset(path = "textures/bevy.png")]
     pub bevy: Handle<Image>,
-    #[asset(path = "textures/player.png")]    
+    #[asset(path = "textures/player.png")]
     pub player: Handle<Image>,
 }
 
