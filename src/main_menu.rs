@@ -161,7 +161,7 @@ fn setup_menu_main(
                         styles.button_text_style.clone(),
                     ));
                 });
-                
+
             // Settings Button
             parent
                 .spawn_bundle(ButtonBundle {
