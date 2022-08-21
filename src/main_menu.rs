@@ -68,8 +68,15 @@ enum ButtonAction {
     GotoSettings,
 }
 
-fn setup_menu(mut state: ResMut<State<MenuState>>) {
+fn setup_menu(
+    mut commands: Commands,
+    mut state: ResMut<State<MenuState>>,
+) {
     state.set(MenuState::Main).unwrap();
+
+    commands
+        .spawn_bundle(Camera2dBundle::default())
+        .insert(OnMenu);
 }
 
 fn update_menu(

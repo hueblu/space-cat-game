@@ -50,6 +50,10 @@ fn setup_splashscreen(
     
     commands
         .insert_resource(SplashScreenTimer(Timer::from_seconds(2.5, false)));
+
+    commands
+        .spawn_bundle(Camera2dBundle::default())
+        .insert(OnSplashScreen);
 }
 
 fn update_splashscreen(

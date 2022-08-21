@@ -2,7 +2,6 @@ use crate::GameState;
 
 use bevy::prelude::*;
 
-
 pub struct ActionsPlugin;
 
 impl Plugin for ActionsPlugin {
@@ -19,6 +18,7 @@ impl Plugin for ActionsPlugin {
 #[derive(Default)]
 pub struct PlayerActions {
     pub movement: Vec3,
+    pub menu: bool,
 }
 
 fn update_player_actions(
@@ -32,5 +32,6 @@ fn update_player_actions(
     if keyboard_input.any_pressed([A, Left]) { p_movement.x -= 1. }
     if keyboard_input.any_pressed([S, Down]) { p_movement.y -= 1. }
     if keyboard_input.any_pressed([D, Right]) { p_movement.x += 1. }
+    if keyboard_input.any_pressed([Escape, M]) { player_actions.menu = true }
     player_actions.movement = p_movement;
 }
