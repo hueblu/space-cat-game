@@ -2,14 +2,14 @@ mod loading;
 mod splashscreen;
 mod main_menu;
 mod actions;
-mod player;
+mod ldtk;
 mod util;
 
 use loading::LoadingPlugin;
 use splashscreen::SplashPlugin;
 use main_menu::MainMenuPlugin;
 use actions::ActionsPlugin;
-use player::PlayerPlugin;
+use ldtk::LdtkPlugin;
 
 #[cfg(debug_assertions)]
 use bevy::diagnostic::{LogDiagnosticsPlugin, FrameTimeDiagnosticsPlugin};
@@ -33,7 +33,7 @@ impl Plugin for GamePlugin {
             .add_plugin(LoadingPlugin)
             .add_plugin(SplashPlugin)
             .add_plugin(MainMenuPlugin)
-            .add_plugin(PlayerPlugin)
+            .add_plugin(LdtkPlugin)
             .add_state(GameState::AssetLoading);
 
         #[cfg(debug_assertions)]
