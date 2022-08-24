@@ -1,8 +1,11 @@
 
 use crate::GameState;
 
-use bevy::{prelude::*, reflect::TypeUuid};
+use bevy::prelude::*;
 use bevy_asset_loader::prelude::*;
+use bevy_ecs_ldtk::{
+    prelude::*,
+};
 
 pub struct LoadingPlugin;
 
@@ -14,11 +17,8 @@ impl Plugin for LoadingPlugin {
                     .continue_to_state(GameState::Splash)
                     .with_collection::<TextureAssets>()
                     .with_collection::<FontAssets>()
+                    .with_collection::<LevelAssets>()
                     .init_resource::<MenuStyles>()
-            )
-            .add_system_set(
-                SystemSet::on_exit(GameState::AssetLoading)
-                    .with_system(spawn_camera)
             );
     }
 }
@@ -40,13 +40,7 @@ pub struct FontAssets {
 #[derive(AssetCollection)]
 pub struct LevelAssets {
     #[asset(path = "level.ldtk")]
-    pub level: Handle<Level>,
-}
-
-#[derive(Debug, TypeUuid)]
-#[uuid = "aecdacbb-8f79-49a9-b44b-30cc07383992"]
-pub struct Level {
-
+    pub level: Handle<LdtkAsset>,
 }
 
 pub struct MenuStyles {
@@ -100,8 +94,4 @@ impl FromWorld for MenuStyles {
             }
         }
     }
-}
-
-fn spawn_camera(mut commands: Commands) {
-    commands.spawn_bundle(Camera2dBundle::default());
 }

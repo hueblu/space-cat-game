@@ -34,7 +34,7 @@ fn setup_splashscreen(
     mut commands: Commands,
     textures: Res<TextureAssets>,
 ) {
-    let icon = textures.bevy.clone();    
+    let icon = textures.bevy.clone();
 
     commands
         .spawn_bundle(ImageBundle {
@@ -47,7 +47,7 @@ fn setup_splashscreen(
             ..Default::default()
         })
         .insert(OnSplashScreen);
-    
+
     commands
         .insert_resource(SplashScreenTimer(Timer::from_seconds(2.5, false)));
 
