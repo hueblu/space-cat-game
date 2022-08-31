@@ -3,7 +3,7 @@ use space_cat_game::GamePlugin;
 use bevy::{prelude::*, render::texture::ImageSettings};
 use bevy_rapier2d::prelude::*;
 
-
+asdfasdf
 fn main() {
     App::new()
         .insert_resource(ImageSettings::default_nearest())
