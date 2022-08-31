@@ -10,6 +10,7 @@ use splashscreen::SplashPlugin;
 use main_menu::MainMenuPlugin;
 use ldtk::LdtkPlugin;
 use actions::ActionsPlugin;
+use ldtk::LdtkPlugin;
 
 #[cfg(debug_assertions)]
 use bevy::diagnostic::{LogDiagnosticsPlugin, FrameTimeDiagnosticsPlugin};

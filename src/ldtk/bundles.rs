@@ -4,6 +4,7 @@ use bevy_ecs_ldtk::prelude::*;
 
 use std::collections::HashSet;
 
+<<<<<<< HEAD:src/ldtk/components.rs
 #[derive(Clone, Default, Bundle, LdtkIntCell)]
 pub(super) struct ColliderBundle {
     pub collider: Collider,
@@ -25,3 +26,7 @@ impl From<EntityInstance> for ColliderBundle {
         }
     }
 }
+=======
+#[derive(Component)]
+pub(super) struct OnLevel;
+>>>>>>> 41d3ac582445125b472bd76962fda60b90c1a7ec:src/ldtk/bundles.rs

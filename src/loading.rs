@@ -6,6 +6,7 @@ use bevy_asset_loader::prelude::*;
 use bevy_ecs_ldtk::{
     prelude::*,
 };
+use bevy_ecs_ldtk::LdtkAsset;
 
 pub struct LoadingPlugin;
 
@@ -42,7 +43,10 @@ pub struct LevelAssets {
     #[asset(path = "level.ldtk")]
     pub level: Handle<LdtkAsset>,
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 41d3ac582445125b472bd76962fda60b90c1a7ec
 pub struct MenuStyles {
     pub button_color: UiColor,
     pub button_color_clicked: UiColor,
@@ -94,4 +98,8 @@ impl FromWorld for MenuStyles {
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 41d3ac582445125b472bd76962fda60b90c1a7ec
